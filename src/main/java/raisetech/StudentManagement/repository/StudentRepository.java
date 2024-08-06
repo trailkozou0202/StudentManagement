@@ -29,6 +29,9 @@ public interface StudentRepository {
     @Select("SELECT * FROM students_courses")
     List<Studentcourse> find();
 
+  @Select("SELECT * FROM students_courses WHERE coursename = 'ENGLISH'")
+  List<Studentcourse> findEnglishCourse();
+
   @Mapper
   public interface StudentMapper {
 

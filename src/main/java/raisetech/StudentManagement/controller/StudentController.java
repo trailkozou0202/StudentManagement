@@ -33,7 +33,10 @@ public class StudentController {
     return service.searchStudents30();
   }
 
-
+  @GetMapping("/englishcourse")
+  public List<Studentcourse> getEnglishCourseStudents() {
+    return service.getEnglishCourseStudents();
+  }
 
 }
 
