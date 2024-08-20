@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import raisetech.StudentManagement.data.Student;
-import raisetech.StudentManagement.data.Studentcourse;
+import raisetech.StudentManagement.data.StudentCourse;
 
 
 /**
@@ -27,10 +27,10 @@ public interface StudentRepository {
   List<Student> students30();
 
     @Select("SELECT * FROM students_courses")
-    List<Studentcourse> find();
+    List<StudentCourse> find();
 
   @Select("SELECT * FROM students_courses WHERE coursename = 'ENGLISH'")
-  List<Studentcourse> findEnglishCourse();
+  List<StudentCourse> findEnglishCourse();
 
   @Mapper
   public interface StudentMapper {
