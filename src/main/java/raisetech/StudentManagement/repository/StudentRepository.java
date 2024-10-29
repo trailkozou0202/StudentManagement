@@ -37,8 +37,8 @@ public interface StudentRepository {
   @Select("SELECT * FROM students WHERE id = #{id}")
   Student searchStudent(String id);
 
-  @Select("SELECT * FROM students_courses WHERE student_info_id = #{student_info_id}")
-  List<StudentsCourses> searchStudentsCourses(String student_info_id);
+  @Select("SELECT * FROM students_courses WHERE student_id = #{student_id}")
+  List<StudentsCourses> searchStudentsCourses(String student_id);
 
 
     @Insert("INSERT INTO students(name,kanaName,nickname,mailAddress,area,age,gender,remark,isDeleted)"
@@ -46,8 +46,8 @@ public interface StudentRepository {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void registerStudent(Student student);
 
-  @Insert("Insert INTO students_courses(student_info_id, course_name, course_start_date, course_end_date)"
-        +"VALUES(#{studentsInfoId}, #{courseName},#{courseStartDate},#{courseEndDate})")
+  @Insert("Insert INTO students_courses(student_id, course_name, course_start_date, course_end_date)"
+        +"VALUES(#{studentId}, #{courseName},#{courseStartDate},#{courseEndDate})")
   @Options(useGeneratedKeys = true, keyProperty = "id")
   void registerStudentsCourses(StudentsCourses studentsCourses);
 
