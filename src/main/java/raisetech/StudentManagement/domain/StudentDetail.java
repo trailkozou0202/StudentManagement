@@ -4,7 +4,7 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import raisetech.StudentManagement.data.Student;
-import raisetech.StudentManagement.data.Studentcourse;
+import raisetech.StudentManagement.data.StudentsCourses;
 
 
 @Getter
@@ -12,6 +12,6 @@ import raisetech.StudentManagement.data.Studentcourse;
 public class StudentDetail {
 
   private Student student;
-  private List<Studentcourse> studentcourse;
+  private List<StudentsCourses> studentsCourses;
 
 }
