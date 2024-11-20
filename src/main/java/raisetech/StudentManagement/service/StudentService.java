@@ -14,6 +14,7 @@ import raisetech.StudentManagement.repository.StudentRepository;
 @Service
 public class StudentService {
 
+
   @Autowired
   private StudentRepository repository;
 
@@ -32,10 +33,6 @@ public class StudentService {
   }
 
 
-  public List<Student> searchStudents30() {
-    return repository.students30();
-  }
-
 
   public List<StudentsCourses> getEnglishCourseStudents() {
     return repository.findEnglishCourse();
@@ -50,6 +47,7 @@ public class StudentService {
     studentDetail.setStudentsCourses(studentsCourses);
     return studentDetail;
   }
+
 
   @Transactional
   public void registerStudent(StudentDetail studentDetail) {
@@ -71,6 +69,12 @@ public class StudentService {
     }
 
 
+  }
+
+
+  @Transactional
+  public void deleteStudentLogically(String studentId) {
+    repository.updateDeleteFlag(studentId, true);
   }
 
 

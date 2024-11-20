@@ -48,10 +48,7 @@ public class StudentController {
 
   }
 
-  @GetMapping("/students30")
-  public List<Student> getStudents30() {
-    return service.searchStudents30();
-  }
+
 
   @GetMapping("/englishcourse")
   public List<StudentsCourses> getEnglishCourseStudents() {
@@ -71,12 +68,12 @@ public class StudentController {
     if (result.hasErrors()) {
       return "registerStudent";
     }
-
     service.registerStudent(studentDetail);
     return "redirect:/studentList";
   }
+
   @PostMapping("/updateStudent")
-  public String updateStudent(@ModelAttribute StudentDetail studentDetail, BindingResult result) {
+  public String updateStudent(@ModelAttribute("studentDetail") StudentDetail studentDetail, BindingResult result) {
     if (result.hasErrors()) {
       return "updateStudent";
     }
@@ -86,16 +83,20 @@ public class StudentController {
   }
 
 
-    @Autowired
-    private StudentService studentService;
+  @Autowired
+  private StudentService studentService;
 
-    @GetMapping("/student/{id}")
-    public String getStudent(@PathVariable String id, Model model) {
-      StudentDetail studentDetail = service.searchStudent(id);
-      model.addAttribute("studentDetail", studentDetail);
-      return "updateStudent";
-    }
+  @GetMapping("/student/{id}")
+  public String getStudent(@PathVariable String id, Model model) {
+    StudentDetail studentDetail = service.searchStudent(id);
+    model.addAttribute("studentDetail", studentDetail);
+    return "updateStudent";
   }
+
+
+
+
+}
 
 
 
